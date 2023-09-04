@@ -19,7 +19,9 @@ spec:
       labels:
         app.kubernetes.io/component: microservice
         app.kubernetes.io/name: microservice-webhook
-
+      annotations:
+        linkerd.io/inject: enabled
+        # loki.io/scrape: "true"
     spec:
       containers:
         - name: microservice-webhook
