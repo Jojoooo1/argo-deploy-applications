@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: webhook
+  name: applications
   namespace: argocd
   annotations:
     # ArgoCD image updater configuration
@@ -25,7 +25,7 @@ spec:
   source:
     repoURL: https://github.com/Jojoooo1/argo-deploy-applications.git
     targetRevision: main
-    path: overlays/local/applications/webhook
+    path: overlays/local/applications
     # Note: envsubst envs are injected through parent app via helm chart in tf.
     plugin:
       name: envsubst
