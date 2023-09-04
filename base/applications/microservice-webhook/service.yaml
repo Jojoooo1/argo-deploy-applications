@@ -3,7 +3,7 @@ kind: Service
 
 metadata:
   name: microservice-webhook
-  namespace: notification
+  namespace: default
 
 spec:
   type: ClusterIP
