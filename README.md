@@ -6,7 +6,7 @@
 
 ### Base
 
-- **base/applications-data**: Contains k8s observability applications
+- **base/applications**: Contains k8s applications
 
 ### Overlay
 
