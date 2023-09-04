@@ -29,6 +29,10 @@ spec:
           env:
             - name: "MANAGEMENT_SERVER_PORT"
               value: "8082"
+            - name: "MANAGEMENT_ENDPOINT_HEALTH_GROUP_READINESS_INCLUDE"
+              value: "rabbit"
+            - name: "MANAGEMENT_ENDPOINT_HEALTH_GROUP_LIVENESS_INCLUDE"
+              value: "rabbit"
           envFrom:
             - secretRef:
                 name: microservice-webhook-configs
