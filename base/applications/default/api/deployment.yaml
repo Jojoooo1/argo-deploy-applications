@@ -23,6 +23,7 @@ spec:
         linkerd.io/inject: enabled
         # loki.io/scrape: "true"
     spec:
+      serviceAccountName: spring-namespace-reader
       containers:
         - name: api
           image: jojoooo1/api:2.0-d48f
