@@ -2,4 +2,6 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-  - microservice-webhook
+  - ../../../base/applications/default/api
+  - ../../../base/applications/default/ingress
+  - ../../../base/applications/default/microservice-webhook

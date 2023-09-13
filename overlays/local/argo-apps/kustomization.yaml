@@ -4,5 +4,5 @@ kind: Kustomization
 namespace: argocd
 
 resources:
-  - ../../../base/argo-apps/webhook-app.yaml
+  - ../../../base/argo-apps/default-app.yaml
 
