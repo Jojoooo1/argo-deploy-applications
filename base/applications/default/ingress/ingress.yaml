@@ -25,10 +25,10 @@ spec:
   tls:
     - secretName: default-tls
       hosts:
-        - api.${ARGOCD_ENV_DNS}.com.br
+        - api.local.com.br
 
   rules:
-    - host: api.${ARGOCD_ENV_DNS}.com.br
+    - host: api.local.com.br
       http:
         paths:
           - path: /
