@@ -69,6 +69,10 @@ spec:
             limits:
               memory: 768Mi
 
+          volumeMounts:
+            - name: tmp-volume
+              mountPath: /tmp
+
           securityContext:
             readOnlyRootFilesystem: true
             allowPrivilegeEscalation: false
@@ -77,3 +81,8 @@ spec:
                 - ALL
             runAsNonRoot: true
             runAsUser: 1000
+
+      # Necessary for readOnly system
+      volumes:
+        - name: tmp-volume
+          emptyDir: {}    
