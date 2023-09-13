@@ -30,6 +30,6 @@ subjects:
     apiGroup: ""
 
 roleRef:
-  kind: Cluster
+  kind: Role
   name: namespace-reader
   apiGroup: ""
