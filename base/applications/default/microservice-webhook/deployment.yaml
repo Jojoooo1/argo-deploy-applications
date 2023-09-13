@@ -25,7 +25,7 @@ spec:
     spec:
       containers:
         - name: microservice-webhook
-          image: jojoooo1/microservice-webhook:latest
+          image: jojoooo1/microservice-webhook:1.0-6713
           env:
             - name: "MANAGEMENT_SERVER_PORT"
               value: "8082"

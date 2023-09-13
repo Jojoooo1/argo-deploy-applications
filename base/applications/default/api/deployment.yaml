@@ -25,7 +25,7 @@ spec:
     spec:
       containers:
         - name: api
-          image: jojoooo1/api:latest
+          image: jojoooo1/api:1.0-3fd5
           env:
             - name: "MANAGEMENT_SERVER_PORT"
               value: "8082"
