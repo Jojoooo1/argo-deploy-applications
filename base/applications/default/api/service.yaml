@@ -8,8 +8,13 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-    - name: metrics
+    - name: http
+      protocol: TCP
       port: 80
+      targetPort: container-port
+
+    - name: metrics
+      port: 8081
       protocol: TCP
       targetPort: metrics
 
