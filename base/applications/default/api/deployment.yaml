@@ -29,7 +29,7 @@ spec:
           image: jojoooo1/api:2.0-d48f
           env:
             - name: "MANAGEMENT_SERVER_PORT"
-              value: "8082"
+              value: "8081"
             - name: "MANAGEMENT_ENDPOINT_HEALTH_GROUP_READINESS_INCLUDE"
               value: "rabbit"
             # - name: "MANAGEMENT_ENDPOINT_HEALTH_GROUP_LIVENESS_INCLUDE"
@@ -40,9 +40,9 @@ spec:
 
           ports:
             - name: container-port
-              containerPort: 8081
+              containerPort: 8080
             - name: metrics
-              containerPort: 8082
+              containerPort: 8081
 
           readinessProbe:
             initialDelaySeconds: 15
