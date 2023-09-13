@@ -10,10 +10,26 @@ metadata:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  name: spring-namespace-reader
+  name: namespace-reader
   namespace: default
-
 rules:
   - apiGroups: ["", "extensions", "apps"]
     resources: ["configmaps", "pods", "services", "endpoints", "secrets"]
     verbs: ["get", "list", "watch"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+
+metadata:
+  name: spring-namespace-reader
+  namespace: default
+
+subjects:
+  - kind: ServiceAccount
+    name: spring-namespace-reader
+    apiGroup: ""
+
+roleRef:
+  kind: Cluster
+  name: namespace-reader
+  apiGroup: ""
