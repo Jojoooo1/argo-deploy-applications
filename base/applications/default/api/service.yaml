@@ -14,7 +14,7 @@ spec:
       targetPort: container-port
 
     - name: metrics
-      port: 8081
+      port: 8082
       protocol: TCP
       targetPort: metrics
 
