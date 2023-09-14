@@ -46,6 +46,10 @@ spec:
             #     configMapKeyRef:
             #       name: api-configs
             #       key: application.properties
+            - name: CONFIG_KEY
+              valueFrom:
+                configMapKey:
+                  name: api
 
           envFrom:
             # - configMapRef:
