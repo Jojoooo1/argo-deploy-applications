@@ -36,7 +36,9 @@ spec:
             - name: "MANAGEMENT_TRACING_SAMPLING_PROBABILITY"
               value: "1"
             - name: "MANAGEMENT_OTLP_TRACING_ENDPOINT"
-              value: "http://tempo.observability:4317"           
+              value: "http://tempo.observability:4317"
+            - name: "JDBC_DATASOURCE_PROXY_QUERY_ENABLE_LOGGING"
+              value: "true"           
 
           envFrom:
             - secretRef:
