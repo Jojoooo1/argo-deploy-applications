@@ -40,11 +40,16 @@ spec:
             # - name: "JDBC_DATASOURCEPROXY_QUERY_ENABLELOGGING"
             #   value: "true"           
             # - name: "JDBC_DATASOURCEPROXY_JSONFORMAT"
-            #   value: "true"           
+            #   value: "true"
+            - name: SPRING_APPLICATION_PROPERTIES
+              valueFrom:
+                configMapKeyRef:
+                  name: api-configs
+                  key: application.properties
 
           envFrom:
-            - configMapRef:
-                name: api-configs
+            # - configMapRef:
+            #     name: api-configs
             - secretRef:
                 name: api-configs
 
