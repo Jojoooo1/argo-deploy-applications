@@ -6,7 +6,7 @@ metadata:
 data:
   # https://jdbc-observations.github.io/datasource-micrometer/docs/current/docs/html/#appendix-common-application-properties
   application.properties: |
-    jdbc.datasource-proxy.enabled=false
+    jdbc.datasource-proxy.enabled=true
     jdbc.datasource-proxy.json-format=true
     jdbc.datasource-proxy.query.enable-logging=true
     jdbc.datasource-proxy.query.log-level=DEBUG
