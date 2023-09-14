@@ -32,8 +32,8 @@ spec:
               value: "8081"
             - name: "MANAGEMENT_ENDPOINT_HEALTH_GROUP_READINESS_INCLUDE"
               value: "rabbit"
-            # - name: "MANAGEMENT_TRACING_SAMPLING_PROBABILITY"
-            #   value: "1"
+            - name: "MANAGEMENT_TRACING_SAMPLING_PROBABILITY"
+              value: "1"
             - name: "MANAGEMENT_OTLP_TRACING_ENDPOINT"
               value: "http://tempo.observability.svc.cluster.local:4318"
 
