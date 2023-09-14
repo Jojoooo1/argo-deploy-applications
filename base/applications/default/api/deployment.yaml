@@ -36,7 +36,7 @@ spec:
             - name: "MANAGEMENT_TRACING_SAMPLING_PROBABILITY"
               value: "1"
             - name: "MANAGEMENT_OTLP_TRACING_ENDPOINT"
-              value: "tempo.observability:4317"           
+              value: "http://tempo.observability:4317"           
 
           envFrom:
             - secretRef:
