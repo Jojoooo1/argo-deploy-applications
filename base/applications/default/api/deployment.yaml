@@ -26,24 +26,17 @@ spec:
       serviceAccountName: spring-namespace-reader
       containers:
         - name: api
-          image: jojoooo1/api:8.0-3b3f
+          image: jojoooo1/api:9.0-6ccd
           env:
             - name: "MANAGEMENT_SERVER_PORT"
               value: "8081"
             - name: "MANAGEMENT_ENDPOINT_HEALTH_GROUP_READINESS_INCLUDE"
               value: "rabbit"
+
             - name: "MANAGEMENT_TRACING_SAMPLING_PROBABILITY"
               value: "1"
-
-            # - name: "OTEL_EXPORTER_OTLP_TRACES_PROTOCOL"
-            #   value: "http/json"
-            # - name: "OTEL_EXPORTER_OTLP_TRACES_ENDPOINT"
-            #   value: "http://tempo.observability:4318/api/traces"     
-
-            # - name: "MANAGEMENT_OTLP_TRACING_PROTOCOL"
-            #   value: "http/json"
             - name: "MANAGEMENT_OTLP_TRACING_ENDPOINT"
-              value: "http://tempo.observability:4318/api/traces"           
+              value: "tempo.observability:4317"           
 
           envFrom:
             - secretRef:
