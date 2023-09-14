@@ -43,7 +43,7 @@ spec:
             # - name: "MANAGEMENT_OTLP_TRACING_PROTOCOL"
             #   value: "http/json"
             - name: "MANAGEMENT_OTLP_TRACING_ENDPOINT"
-              value: "http://tempo.observability:4318/api/traces"           
+              value: "http://tempo.observability:4318"           
 
           envFrom:
             - secretRef:
