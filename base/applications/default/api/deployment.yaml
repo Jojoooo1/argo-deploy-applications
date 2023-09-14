@@ -39,6 +39,8 @@ spec:
               value: "http://tempo.observability:4317"
             - name: "JDBC_DATASOURCEPROXY_QUERY_ENABLELOGGING"
               value: "true"           
+            - name: "JDBC_DATASOURCEPROXY_JSONFORMAT"
+              value: "true"           
 
           envFrom:
             - secretRef:
