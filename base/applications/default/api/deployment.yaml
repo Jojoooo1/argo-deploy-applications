@@ -34,8 +34,14 @@ spec:
               value: "rabbit"
             - name: "MANAGEMENT_TRACING_SAMPLING_PROBABILITY"
               value: "1"
-            - name: "MANAGEMENT_OTLP_TRACING_ENDPOINT"
-              value: "http://tempo.observability.svc.cluster.local:4318/api/traces"
+            - name: "OTEL_EXPORTER_OTLP_TRACES_PROTOCOL"
+              value: "http/protobuf"
+            - name: "OTEL_EXPORTER_OTLP_TRACES_ENDPOINT"
+              value: "http://tempo.observability:4318/api/traces"
+            # - name: "MANAGEMENT_OTLP_TRACING_ENDPOINT"
+            #   value: "http://tempo.observability:4318/api/traces"
+
+            
 
           envFrom:
             - secretRef:
