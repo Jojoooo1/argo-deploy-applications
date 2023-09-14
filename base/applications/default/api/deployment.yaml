@@ -35,8 +35,8 @@ spec:
             # - name: "MANAGEMENT_TRACING_SAMPLING_PROBABILITY"
             #   value: "1"
             - name: "MANAGEMENT_OTLP_TRACING_ENDPOINT"
-              value: "http://tempo.observability.svc.cluster.local:4317"
-              
+              value: "http://tempo.observability.svc.cluster.local:4318"
+
           envFrom:
             - secretRef:
                 name: api-configs
