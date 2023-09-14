@@ -37,7 +37,7 @@ spec:
               value: "1"
             - name: "MANAGEMENT_OTLP_TRACING_ENDPOINT"
               value: "http://tempo.observability:4317"
-            - name: "JDBC_DATASOURCE_PROXY_QUERY_ENABLE_LOGGING"
+            - name: "JDBC_DATASOURCEPROXY_QUERY_ENABLELOGGING"
               value: "true"           
 
           envFrom:
