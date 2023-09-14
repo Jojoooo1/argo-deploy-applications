@@ -41,11 +41,11 @@ spec:
             #   value: "true"           
             # - name: "JDBC_DATASOURCEPROXY_JSONFORMAT"
             #   value: "true"
-            - name: SPRING_APPLICATION_PROPERTIES
-              valueFrom:
-                configMapKeyRef:
-                  name: api-configs
-                  key: application.properties
+            # - name: SPRING_APPLICATION_PROPERTIES
+            #   valueFrom:
+            #     configMapKeyRef:
+            #       name: api-configs
+            #       key: application.properties
 
           envFrom:
             # - configMapRef:
