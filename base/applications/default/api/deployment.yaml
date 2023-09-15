@@ -30,8 +30,8 @@ spec:
           env:
             - name: "MANAGEMENT_SERVER_PORT"
               value: "8081"
-            - name: "MANAGEMENT_ENDPOINT_HEALTH_GROUP_READINESS_INCLUDE"
-              value: "rabbit"
+            # - name: "MANAGEMENT_ENDPOINT_HEALTH_GROUP_READINESS_INCLUDE"
+            #   value: "rabbit"
 
             - name: "MANAGEMENT_TRACING_SAMPLING_PROBABILITY"
               value: "1"
