@@ -55,6 +55,8 @@ spec:
       helm:
         valuesObject:
           fullnameOverride: postgres
+          commonAnnotations:
+            argocd.argoproj.io/sync-wave: "-1"
           auth:
             postgresPassword: password
             database: api
