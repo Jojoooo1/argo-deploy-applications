@@ -1,0 +1,70 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cloud-diplomats-app
+  namespace: argocd
+  annotations:
+    # ArgoCD image updater configuration
+    argocd-image-updater.argoproj.io/image-list: "wb=jojoooo1/microservice-webhook"
+    argocd-image-updater.argoproj.io/wb.update-strategy: latest
+
+    argocd-image-updater.argoproj.io/write-back-target: kustomization # Note: do not use argocd or it will conflict with envsubst
+    argocd-image-updater.argoproj.io/write-back-method: git
+
+  # Add this finalizer ONLY if you want these to cascade delete (A cascade delete, deletes both the app and its resources, rather than only the app.)
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  
+spec:
+  project: default
+
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+      - PrunePropagationPolicy=foreground
+
+    # automated:
+    #   prune: true
+    #   selfHeal: true
+
+  sources:
+    - repoURL: https://github.com/Jojoooo1/argo-deploy-applications.git
+      targetRevision: main
+      path: applications/overlays/${ARGOCD_ENV_ENV}/cloud-diplomats
+      # Note: envsubst envs are injected through parent app via helm chart in tf.
+      plugin:
+        name: envsubst
+        env:
+          - name: ENV
+            value: "${ARGOCD_ENV_ENV}"
+
+          - name: DNS_ENV
+            value: "${ARGOCD_ENV_DNS_ENV}"
+
+          - name: DNS_DOMAIN
+            value: "${ARGOCD_ENV_DNS_DOMAIN}"
+
+          - name: PROJECT
+            value: "${ARGOCD_ENV_PROJECT}"
+
+    - chart: postgresql
+      repoURL: registry-1.docker.io/bitnamicharts
+      targetRevision: 13.1.5
+
+      # https://github.com/bitnami/charts/tree/main/bitnami/postgresql
+      helm:
+        valuesObject:
+          fullnameOverride: postgres
+          auth:
+            postgresPassword: password
+            database: api
+            username: user
+            password: password
+          primary:
+            # Activate logical replication in order to test CDC
+            extendedConfiguration: |
+              wal_level = logical
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: cloud-diplomats
