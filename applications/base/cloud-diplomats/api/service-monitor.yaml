@@ -14,7 +14,7 @@ spec:
 
   namespaceSelector:
     matchNames:
-      - default
+      - cloud-diplomats
   selector:
     matchLabels:
       app.kubernetes.io/name: cloud-diplomats-api
