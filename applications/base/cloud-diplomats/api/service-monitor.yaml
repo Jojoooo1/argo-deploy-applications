@@ -17,5 +17,5 @@ spec:
       - default
   selector:
     matchLabels:
-      app.kubernetes.io/component: microservice
-      app.kubernetes.io/name: api
+      app.kubernetes.io/name: cloud-diplomats-api
+      app.kubernetes.io/component: api
