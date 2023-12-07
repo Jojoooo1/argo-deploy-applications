@@ -20,8 +20,10 @@ spec:
     matchLabels:
       app.kubernetes.io/name: cloud-diplomats-api
       app.kubernetes.io/component: api
-
-  targetLabels:
-    - app.kubernetes.io/name
-    - app.kubernetes.io/component
-    - app.kubernetes.io/managed-by
+  relabelings:
+    - sourceLabels: [app.kubernetes.io/name]
+      targetLabel: name
+    - sourceLabels: [app.kubernetes.io/component]
+      targetLabel: component
+    - sourceLabels: [app.kubernetes.io/managed-by]
+      targetLabel: managed-by
