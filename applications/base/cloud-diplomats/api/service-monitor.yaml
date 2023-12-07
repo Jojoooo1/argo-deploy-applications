@@ -15,7 +15,12 @@ spec:
   namespaceSelector:
     matchNames:
       - cloud-diplomats
+
   selector:
     matchLabels:
       app.kubernetes.io/name: cloud-diplomats-api
       app.kubernetes.io/component: api
+
+  targetLabels:
+    - app.kubernetes.io/component
+    - app.kubernetes.io/managed-by
