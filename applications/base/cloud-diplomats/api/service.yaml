@@ -19,5 +19,5 @@ spec:
       targetPort: metrics
 
   selector:
-    app.kubernetes.io/name: api
-    app.kubernetes.io/component: microservice
+    app.kubernetes.io/name: cloud-diplomats-api
+    app.kubernetes.io/component: api
