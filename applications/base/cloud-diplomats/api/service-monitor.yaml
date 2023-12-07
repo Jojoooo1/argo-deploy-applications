@@ -3,7 +3,6 @@ kind: ServiceMonitor
 metadata:
   name: api
   namespace: cloud-diplomats
-  
   labels:
     prometheus.io/scrap-with: kube-prometheus-stack
 spec:
@@ -12,8 +11,8 @@ spec:
       port: metrics
       path: /actuator/prometheus
       relabelings:
-        - sourceLabels: [__meta_kubernetes_service_label_app_kubernetes_io_name]
-          targetLabel: name
+        - sourceLabels: [__meta_kubernetes_service_label_app_kubernetes_io_application]
+          targetLabel: application
         - sourceLabels: [__meta_kubernetes_service_label_app_kubernetes_io_component]
           targetLabel: component
         - sourceLabels: [__meta_kubernetes_service_label_app_kubernetes_io_managed_by]
@@ -25,5 +24,5 @@ spec:
 
   selector:
     matchLabels:
-      app.kubernetes.io/name: cloud-diplomats-api
+      app.kubernetes.io/application: cloud-diplomats-api
       app.kubernetes.io/component: api

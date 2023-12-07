@@ -5,21 +5,22 @@ metadata:
   namespace: cloud-diplomats
   
   labels:
-    app.kubernetes.io/component: microservice
-    app.kubernetes.io/name: webhook
-    app.kubernetes.io/managed-by: platform
+    app.kubernetes.io/application: cloud-diplomats-webhook
+    app.kubernetes.io/component: worker
+    app.kubernetes.io/managed-by: Jonathan
+
 spec:
   revisionHistoryLimit: 3
   replicas: 1
   selector:
     matchLabels:
-      app.kubernetes.io/component: microservice
-      app.kubernetes.io/name: webhook
+      app.kubernetes.io/application: cloud-diplomats-webhook
+      app.kubernetes.io/component: worker
   template:
     metadata:
       labels:
-        app.kubernetes.io/component: microservice
-        app.kubernetes.io/name: webhook
+        app.kubernetes.io/application: cloud-diplomats-webhook
+        app.kubernetes.io/component: worker
     spec:
       containers:
         - name: webhook

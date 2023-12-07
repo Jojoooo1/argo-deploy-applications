@@ -4,6 +4,10 @@ kind: Service
 metadata:
   name: webhook
   namespace: cloud-diplomats
+  labels:
+    app.kubernetes.io/application: cloud-diplomats-webhook
+    app.kubernetes.io/component: worker
+    app.kubernetes.io/managed-by: Jonathan
 
 spec:
   type: ClusterIP
@@ -14,5 +18,5 @@ spec:
       targetPort: metrics
 
   selector:
-    app.kubernetes.io/component: microservice
-    app.kubernetes.io/name: webhook
+    app.kubernetes.io/application: cloud-diplomats-webhook
+    app.kubernetes.io/component: worker

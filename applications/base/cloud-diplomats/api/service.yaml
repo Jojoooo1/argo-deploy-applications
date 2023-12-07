@@ -5,7 +5,7 @@ metadata:
   name: api
   namespace: cloud-diplomats
   labels:
-    app.kubernetes.io/name: cloud-diplomats-api
+    app.kubernetes.io/application: cloud-diplomats-api
     app.kubernetes.io/component: api
     app.kubernetes.io/managed-by: Jonathan
 spec:
@@ -22,5 +22,5 @@ spec:
       targetPort: metrics
 
   selector:
-    app.kubernetes.io/name: cloud-diplomats-api
+    app.kubernetes.io/application: cloud-diplomats-api
     app.kubernetes.io/component: api
