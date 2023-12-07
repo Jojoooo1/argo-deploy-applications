@@ -12,17 +12,11 @@ spec:
       port: metrics
       path: /actuator/prometheus
       relabelings:
-        - action: replace
-          sourceLabels:
-            - __meta_kubernetes_pod_label_app_kubernetes_io_name
+        - sourceLabel: __meta_kubernetes_pod_label_app_kubernetes_io_name
           targetLabel: name
-        - action: replace
-          sourceLabels:
-            - __meta_kubernetes_pod_label_app_kubernetes_io_component
+        - sourceLabel: __meta_kubernetes_pod_label_app_kubernetes_io_component
           targetLabel: component
-        - action: replace
-          sourceLabels:
-            - __meta_kubernetes_pod_label_app_kubernetes_io_managed_by
+        - sourceLabel: __meta_kubernetes_pod_label_app_kubernetes_io_managed_by
           targetLabel: managedBy
 
   namespaceSelector:
