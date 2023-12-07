@@ -22,5 +22,6 @@ spec:
       app.kubernetes.io/component: api
 
   targetLabels:
+    - app.kubernetes.io/name
     - app.kubernetes.io/component
     - app.kubernetes.io/managed-by
