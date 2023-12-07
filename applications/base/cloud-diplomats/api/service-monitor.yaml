@@ -11,6 +11,19 @@ spec:
     - interval: 30s
       port: metrics
       path: /actuator/prometheus
+      relabelings:
+        - action: replace
+          sourceLabels:
+            - __meta_kubernetes_pod_label_app_kubernetes_io_name
+          targetLabel: name
+        - action: replace
+          sourceLabels:
+            - __meta_kubernetes_pod_label_app_kubernetes_io_component
+          targetLabel: component
+        - action: replace
+          sourceLabels:
+            - __meta_kubernetes_pod_label_app_kubernetes_io_managed_by
+          targetLabel: managedBy
 
   namespaceSelector:
     matchNames:
@@ -20,10 +33,3 @@ spec:
     matchLabels:
       app.kubernetes.io/name: cloud-diplomats-api
       app.kubernetes.io/component: api
-  relabelings:
-    - sourceLabels: [app.kubernetes.io/name]
-      targetLabel: name
-    - sourceLabels: [app.kubernetes.io/component]
-      targetLabel: component
-    - sourceLabels: [app.kubernetes.io/managed-by]
-      targetLabel: managed-by
