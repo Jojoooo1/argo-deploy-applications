@@ -30,7 +30,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: api
+                name: api-stable
                 port:
                   number: 80
 
