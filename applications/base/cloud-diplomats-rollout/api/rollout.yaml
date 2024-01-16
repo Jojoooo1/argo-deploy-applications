@@ -27,7 +27,7 @@ spec:
       serviceAccountName: spring-namespace-reader
       containers:
         - name: api
-          image: jojoooo1/api:10.0-dcer
+          image: jojoooo1/api:10.0-dce6-rc
           env:
             - name: "MANAGEMENT_SERVER_PORT"
               value: "8081"
