@@ -7,5 +7,6 @@ resources:
   - pdb.yaml
   - rollout.yaml
   - secret.yaml
-  - service.yaml
+  - service-stable.yaml
+  - service-rollout.yaml
   - service-monitor.yaml
