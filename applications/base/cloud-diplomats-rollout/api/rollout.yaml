@@ -11,6 +11,16 @@ metadata:
 spec:
   revisionHistoryLimit: 3
   replicas: 1
+  strategy:
+    canary:
+      canaryService: api-canary
+      stableService: api-stable
+      trafficRouting:
+        nginx:
+          stableIngress: cloud-diplomats-ingress
+      steps:
+        - setWeight: 5
+        - pause: {}
   selector:
     matchLabels:
       app.kubernetes.io/application: cloud-diplomats-api
