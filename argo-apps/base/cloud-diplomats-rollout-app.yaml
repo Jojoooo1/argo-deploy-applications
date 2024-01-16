@@ -35,6 +35,26 @@ spec:
           - name: DNS_DOMAIN
             value: "${ARGOCD_ENV_DNS_DOMAIN}"
 
+    - chart: postgresql
+      repoURL: registry-1.docker.io/bitnamicharts
+      targetRevision: 13.2.30
+
+      # https://github.com/bitnami/charts/tree/main/bitnami/postgresql
+      helm:
+        valuesObject:
+          fullnameOverride: postgres
+          commonAnnotations:
+            argocd.argoproj.io/sync-wave: "-1"
+          auth:
+            postgresPassword: password
+            database: api
+            username: user
+            password: password
+          primary:
+            # Activate logical replication in order to test CDC
+            extendedConfiguration: |
+              wal_level = logical
+
   destination:
     server: https://kubernetes.default.svc
     namespace: cloud-diplomats-rollout

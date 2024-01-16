@@ -44,7 +44,7 @@ spec:
 
     - chart: postgresql
       repoURL: registry-1.docker.io/bitnamicharts
-      targetRevision: 13.2.24
+      targetRevision: 13.2.30
 
       # https://github.com/bitnami/charts/tree/main/bitnami/postgresql
       helm:
