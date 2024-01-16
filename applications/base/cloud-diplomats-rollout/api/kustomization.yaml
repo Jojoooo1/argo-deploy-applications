@@ -5,7 +5,7 @@ namespace: cloud-diplomats-rollout
 
 resources:
   - pdb.yaml
-  - deployment.yaml
+  - rollout.yaml
   - secret.yaml
   - service.yaml
   - service-monitor.yaml
