@@ -8,5 +8,5 @@ resources:
   - rollout.yaml
   - secret.yaml
   - service-stable.yaml
-  - service-rollout.yaml
+  - service-canary.yaml
   - service-monitor.yaml
