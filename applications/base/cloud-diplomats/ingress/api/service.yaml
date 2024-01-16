@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: api
+  namespace: cloud-diplomats
+  labels:
+    app.kubernetes.io/application: cloud-diplomats-api
+    app.kubernetes.io/component: api
+    app.kubernetes.io/managed-by: Jonathan
+spec:
+  type: ClusterIP
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: container-port
+
+    - name: metrics
+      port: 8081
+      protocol: TCP
+      targetPort: metrics
+
+  selector:
+    app.kubernetes.io/application: cloud-diplomats-api
+    app.kubernetes.io/component: api

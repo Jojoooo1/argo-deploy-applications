@@ -1,8 +1,8 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
 metadata:
   name: api
-  namespace: cloud-diplomats
+  namespace: cloud-diplomats-rollout
   
   labels:
     app.kubernetes.io/application: cloud-diplomats-api
@@ -20,6 +20,9 @@ spec:
       labels:
         app.kubernetes.io/application: cloud-diplomats-api
         app.kubernetes.io/component: api
+      annotations:
+        linkerd.io/inject: enabled
+        # loki.io/scrape: "true"
     spec:
       serviceAccountName: spring-namespace-reader
       containers:
@@ -41,8 +44,6 @@ spec:
               value: "true"
 
           envFrom:
-            - configMapRef:
-                name: api-configs
             - secretRef:
                 name: api-configs
 

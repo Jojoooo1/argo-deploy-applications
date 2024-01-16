@@ -20,6 +20,9 @@ spec:
       labels:
         app.kubernetes.io/application: cloud-diplomats-api
         app.kubernetes.io/component: api
+      annotations:
+        linkerd.io/inject: enabled
+        # loki.io/scrape: "true"
     spec:
       serviceAccountName: spring-namespace-reader
       containers:
