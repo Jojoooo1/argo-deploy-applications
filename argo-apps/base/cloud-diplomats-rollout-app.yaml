@@ -1,0 +1,40 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cloud-diplomats-rollout-app
+  namespace: argocd
+
+  # Add this finalizer ONLY if you want these to cascade delete (A cascade delete, deletes both the app and its resources, rather than only the app.)
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  
+spec:
+  project: default
+
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+      - PrunePropagationPolicy=foreground
+
+    # automated:
+    #   prune: true
+    #   selfHeal: true
+
+  sources:
+    - repoURL: ${ARGOCD_ENV_GITHUB_REPO}/argo-deploy-applications.git
+      targetRevision: main
+      path: applications/overlays/local/cloud-diplomats-rollout
+      # Note: envsubst envs are injected through parent app via helm chart in tf.
+      plugin:
+        name: envsubst
+        env:
+          - name: ENV
+            value: "${ARGOCD_ENV_ENV}"
+          - name: DNS_ENV
+            value: "${ARGOCD_ENV_DNS_ENV}"
+          - name: DNS_DOMAIN
+            value: "${ARGOCD_ENV_DNS_DOMAIN}"
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: cloud-diplomats-rollout
