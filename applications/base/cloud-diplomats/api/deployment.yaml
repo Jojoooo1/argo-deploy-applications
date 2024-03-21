@@ -45,8 +45,6 @@ spec:
           envFrom:
             - configMapRef:
                 name: api-configs
-            - secretRef:
-                name: api-configs
 
           ports:
             - name: container-port
