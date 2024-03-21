@@ -8,4 +8,4 @@ data:
   
   # add span attribute "jdbc.params[0]" with all value
   JDBC_DATASOURCE_PROXY_INCLUDE_PARAMETER_VALUES: "false"
-  JDBC_INCLUDES: "QUERY,FETCH" # remove CONNECTION from traces
+  # JDBC_INCLUDES: "QUERY,FETCH" # can remove CONNECTION if too many traces
