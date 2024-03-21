@@ -8,4 +8,4 @@ data:
   
   # add span attribute "jdbc.params[0]" with all value
   JDBC_DATASOURCE_PROXY_INCLUDE_PARAMETER_VALUES: "false"
-  # JDBC_INCLUDES: "QUERY,FETCH" # when setting "QUERY,FETCH" for some reason can not get span in the last 5 minutes in tempo
+  JDBC_INCLUDES: "QUERY,FETCH" # remove CONNECTION from traces
