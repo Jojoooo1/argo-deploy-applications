@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: cloud-diplomats-app
+  name: app-cloud-diplomats
   namespace: argocd
   annotations:
     # ArgoCD image updater configuration
