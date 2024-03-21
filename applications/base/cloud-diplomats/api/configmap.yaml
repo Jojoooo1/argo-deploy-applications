@@ -7,4 +7,5 @@ data:
   HTTP_CLIENTS_MY_EXTERNAL_API_BASE_URL: "https://webhook.site/b4b43dbd-9980-4690-8db7-e50be66e4d0c"
   
   # add span attribute "jdbc.params[0]" with all value
-  JDBC_DATASOURCE_PROXY_INCLUDE_PARAMETER_VALUES: "false" # connection/query/result-set
+  JDBC_DATASOURCE_PROXY_INCLUDE_PARAMETER_VALUES: "false"
+  JDBC_INCLUDES: "QUERY,FETCH"
