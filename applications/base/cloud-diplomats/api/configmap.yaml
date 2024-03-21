@@ -4,7 +4,5 @@ metadata:
   name: api-configs
   namespace: cloud-diplomats
 data:
-  HTTP_CLIENTS_MY_EXTERNAL_API_BASE_URL: aHR0cHM6Ly93ZWJob29rLnNpdGUvYjRiNDNkYmQtOTk4MC00NjkwLThkYjctZTUwYmU2NmU0ZDBj
-
-  # tracing
-  JDBC_DATASOURCE_PROXY_INCLUDE_PARAMETER_VALUES: ImZhbHNlIg==
+  HTTP_CLIENTS_MY_EXTERNAL_API_BASE_URL: "https://webhook.site/b4b43dbd-9980-4690-8db7-e50be66e4d0c"
+  JDBC_DATASOURCE_PROXY_INCLUDE_PARAMETER_VALUES: "false"
