@@ -39,10 +39,12 @@ spec:
               value: "/workspace/opentelemetry/default.properties"
             - name: "OTEL_TRACES_EXPORTER"
               value: "otlp"
+            - name: "OTEL_EXPORTER_OTLP_TRACES_ENDPOINT"
+              value: "http://otel-collector-traces-collector.observability:4317"
             - name: "OTEL_METRICS_EXPORTER"
               value: "otlp"
-            - name: "OTEL_EXPORTER_OTLP_ENDPOINT"
-              value: "http://otel-collector-traces-collector.observability:4317"
+            - name: "OTEL_EXPORTER_OTLP_METRICS_ENDPOINT"
+              value: "http://otel-collector-metrics-collector.observability:4317"
 
             # Needed when database schema is not empty
             - name: "SPRING_FLYWAY_BASELINE_ON_MIGRATE"
