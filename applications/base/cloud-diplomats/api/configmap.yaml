@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: api-configs
+  name: cloud-diplomats-api
   namespace: cloud-diplomats
   labels:
     app.kubernetes.io/instance: cloud-diplomats-app

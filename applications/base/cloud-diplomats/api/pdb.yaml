@@ -1,7 +1,7 @@
 apiVersion: policy/v1
 kind: PodDisruptionBudget
 metadata:
-  name: api
+  name: cloud-diplomats-api
   namespace: cloud-diplomats
   labels:
     app.kubernetes.io/instance: cloud-diplomats-app

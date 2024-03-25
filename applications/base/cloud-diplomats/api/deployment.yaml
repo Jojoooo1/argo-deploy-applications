@@ -54,9 +54,9 @@ spec:
 
           envFrom:
             - configMapRef:
-                name: api-configs
+                name: cloud-diplomats-api
             - secretRef:
-                name: api-configs
+                name: cloud-diplomats-api
 
           ports:
             - name: container-port
