@@ -11,6 +11,9 @@ metadata:
     argocd-image-updater.argoproj.io/write-back-target: kustomization # Note: do not use argocd or it will conflict with envsubst
     argocd-image-updater.argoproj.io/write-back-method: git
 
+    # Improve performance by only syncing the paths that are needed https://argo-cd.readthedocs.io/en/latest/operator-manual/high_availability/#manifest-paths-annotation
+    argocd.argoproj.io/manifest-generate-paths: .
+
   # Add this finalizer ONLY if you want these to cascade delete (A cascade delete, deletes both the app and its resources, rather than only the app.)
   finalizers:
     - resources-finalizer.argocd.argoproj.io
