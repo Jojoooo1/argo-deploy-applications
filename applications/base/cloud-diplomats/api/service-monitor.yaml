@@ -16,10 +16,10 @@ spec:
     - interval: 30s
       port: metrics
       path: /actuator/prometheus
-      # Do not remove targetLabel: component and name as they are used in Grafana dashboard
+      # Do not remove targetLabel: component and application as they are used in Grafana dashboard
       relabelings:
-        - sourceLabels: [__meta_kubernetes_pod_label_app_kubernetes_io_name]
-          targetLabel: name
+        - sourceLabels: [__meta_kubernetes_pod_label_app_kubernetes_io_application]
+          targetLabel: application
         - sourceLabels: [__meta_kubernetes_pod_label_app_kubernetes_io_component]
           targetLabel: component
         - sourceLabels: [__meta_kubernetes_pod_label_app_kubernetes_io_managed_by]
