@@ -44,7 +44,7 @@ spec:
         #       value: "true"
               
         - name: api
-          image: jojoooo1/api:11.0-otel
+          image: jojoooo1/api:12.0-dcer # 11.0-otel
           env:
             - name: "MANAGEMENT_SERVER_PORT"
               value: "8081"
