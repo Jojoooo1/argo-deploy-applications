@@ -25,49 +25,50 @@ spec:
     spec:
       serviceAccountName: spring-namespace-reader
       containers:
-        - name: api
-          image: jojoooo1/api:10.0-dcer
-          env:
-            - name: "MANAGEMENT_SERVER_PORT"
-              value: "8081"
-            # - name: "MANAGEMENT_ENDPOINT_HEALTH_GROUP_READINESS_INCLUDE"
-            #   value: "rabbit"
-
-            - name: "MANAGEMENT_TRACING_SAMPLING_PROBABILITY"
-              value: "1"
-            - name: "MANAGEMENT_OTLP_TRACING_ENDPOINT"
-              value: "http://tempo.observability:4317"
-
-            # Needed when database schema is not empty
-            - name: "SPRING_FLYWAY_BASELINE_ON_MIGRATE"
-              value: "true"
-              
+        # Prometheus instrumentation
         # - name: api
-        #   image: jojoooo1/api:11.0-otel
+        #   image: jojoooo1/api:10.0-dcer
         #   env:
         #     - name: "MANAGEMENT_SERVER_PORT"
         #       value: "8081"
         #     # - name: "MANAGEMENT_ENDPOINT_HEALTH_GROUP_READINESS_INCLUDE"
         #     #   value: "rabbit"
 
-        #     - name: "SPRING_PROFILES_ACTIVE"
-        #       value: "json-logs"
-        #     - name: "JAVA_TOOL_OPTIONS"
-        #       value: "-javaagent:/workspace/opentelemetry/opentelemetry-javaagent.jar"
-        #     - name: "OTEL_JAVAAGENT_CONFIGURATION_FILE"
-        #       value: "/workspace/opentelemetry/default.properties"
-        #     - name: "OTEL_TRACES_EXPORTER"
-        #       value: "otlp"
-        #     - name: "OTEL_EXPORTER_OTLP_TRACES_ENDPOINT"
-        #       value: "http://otel-collector-traces-collector.observability:4317"
-        #     - name: "OTEL_METRICS_EXPORTER"
-        #       value: "otlp"
-        #     - name: "OTEL_EXPORTER_OTLP_METRICS_ENDPOINT"
-        #       value: "http://otel-collector-metrics-collector.observability:4317"
+        #     - name: "MANAGEMENT_TRACING_SAMPLING_PROBABILITY"
+        #       value: "1"
+        #     - name: "MANAGEMENT_OTLP_TRACING_ENDPOINT"
+        #       value: "http://tempo.observability:4317"
 
         #     # Needed when database schema is not empty
         #     - name: "SPRING_FLYWAY_BASELINE_ON_MIGRATE"
         #       value: "true"
+              
+        - name: api
+          image: jojoooo1/api:11.0-otel
+          env:
+            - name: "MANAGEMENT_SERVER_PORT"
+              value: "8081"
+            # - name: "MANAGEMENT_ENDPOINT_HEALTH_GROUP_READINESS_INCLUDE"
+            #   value: "rabbit"
+
+            - name: "SPRING_PROFILES_ACTIVE"
+              value: "json-logs"
+            - name: "JAVA_TOOL_OPTIONS"
+              value: "-javaagent:/workspace/opentelemetry/opentelemetry-javaagent.jar"
+            - name: "OTEL_JAVAAGENT_CONFIGURATION_FILE"
+              value: "/workspace/opentelemetry/default.properties"
+            - name: "OTEL_TRACES_EXPORTER"
+              value: "otlp"
+            - name: "OTEL_EXPORTER_OTLP_TRACES_ENDPOINT"
+              value: "http://otel-collector-traces-collector.observability:4317"
+            - name: "OTEL_METRICS_EXPORTER"
+              value: "otlp"
+            - name: "OTEL_EXPORTER_OTLP_METRICS_ENDPOINT"
+              value: "http://otel-collector-metrics-collector.observability:4317"
+
+            # Needed when database schema is not empty
+            - name: "SPRING_FLYWAY_BASELINE_ON_MIGRATE"
+              value: "true"
 
           envFrom:
             - configMapRef:
