@@ -5,7 +5,7 @@ metadata:
   namespace: cloud-diplomats
   labels:
     app.kubernetes.io/instance: cloud-diplomats-app
-    app.kubernetes.io/name: cloud-diplomats-api
+    app.kubernetes.io/application: cloud-diplomats-api
     app.kubernetes.io/managed-by: Jonathan
 data:
   HTTP_CLIENTS_MY_EXTERNAL_API_BASE_URL: "https://webhook.site/f6ec3af8-08d7-427d-b839-3d88f84fa9c0"

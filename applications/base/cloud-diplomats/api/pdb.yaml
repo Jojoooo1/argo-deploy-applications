@@ -5,7 +5,7 @@ metadata:
   namespace: cloud-diplomats
   labels:
     app.kubernetes.io/instance: cloud-diplomats-app
-    app.kubernetes.io/name: cloud-diplomats-api
+    app.kubernetes.io/application: cloud-diplomats-api
     app.kubernetes.io/managed-by: Jonathan
 spec:
   minAvailable: 1
