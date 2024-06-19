@@ -1,7 +1,7 @@
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  name: cloud-diplomats-api
+  name: cloud-diplomats-api1
   namespace: cloud-diplomats
 spec:
   selector:
