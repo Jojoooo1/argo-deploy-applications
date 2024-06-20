@@ -51,8 +51,8 @@ spec:
             # - name: "MANAGEMENT_ENDPOINT_HEALTH_GROUP_READINESS_INCLUDE"
             #   value: "rabbit"
 
-            - name: "SPRING_PROFILES_ACTIVE"
-              value: "json-logs"
+            # - name: "SPRING_PROFILES_ACTIVE"
+            #   value: "json-logs"
             - name: "JAVA_TOOL_OPTIONS"
               value: "-javaagent:/workspace/opentelemetry/opentelemetry-javaagent.jar"
             - name: "OTEL_JAVAAGENT_CONFIGURATION_FILE"
