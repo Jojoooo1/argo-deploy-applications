@@ -20,7 +20,7 @@ spec:
 
   namespaceSelector:
     matchNames:
-      - cloud-diplomats
+      - cloud-diplomats-rollout
 
   selector:
     matchLabels:
