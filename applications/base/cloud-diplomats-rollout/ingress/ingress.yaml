@@ -20,10 +20,10 @@ spec:
   tls:
     - secretName: cloud-diplomats-tls
       hosts:
-        - api${ARGOCD_ENV_DNS_ENV}.${ARGOCD_ENV_DNS_DOMAIN}
+        - rollout${ARGOCD_ENV_DNS_ENV}.${ARGOCD_ENV_DNS_DOMAIN}
 
   rules:
-    - host: api${ARGOCD_ENV_DNS_ENV}.${ARGOCD_ENV_DNS_DOMAIN}
+    - host: rollout${ARGOCD_ENV_DNS_ENV}.${ARGOCD_ENV_DNS_DOMAIN}
       http:
         paths:
           - path: /
