@@ -34,6 +34,7 @@ spec:
                 name: cloud-diplomats-api
                 port:
                   number: 80
+
     - host: api-micrometer${ARGOCD_ENV_DNS_ENV}.${ARGOCD_ENV_DNS_DOMAIN}
       http:
         paths:
