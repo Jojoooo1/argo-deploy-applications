@@ -7,4 +7,5 @@ resources:
   - ../../../../applications/base/cloud-diplomats/ingress
   - ../../../../applications/base/cloud-diplomats/rbac
   - ../../../../applications/base/cloud-diplomats/api
+  - ../../../../applications/base/cloud-diplomats/api-micrometer
 
