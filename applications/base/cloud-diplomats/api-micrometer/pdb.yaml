@@ -1,0 +1,15 @@
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: cloud-diplomats-api-micrometer
+  namespace: cloud-diplomats
+  labels:
+    app.kubernetes.io/instance: cloud-diplomats-app
+    app.kubernetes.io/application: cloud-diplomats-api-micrometer
+    app.kubernetes.io/managed-by: Jonathan
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: microservice
+      app.kubernetes.io/name: api

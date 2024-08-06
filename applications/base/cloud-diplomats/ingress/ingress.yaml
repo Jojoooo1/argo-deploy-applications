@@ -21,6 +21,7 @@ spec:
     - secretName: cloud-diplomats-tls
       hosts:
         - api${ARGOCD_ENV_DNS_ENV}.${ARGOCD_ENV_DNS_DOMAIN}
+        - api-micrometer${ARGOCD_ENV_DNS_ENV}.${ARGOCD_ENV_DNS_DOMAIN}
 
   rules:
     - host: api${ARGOCD_ENV_DNS_ENV}.${ARGOCD_ENV_DNS_DOMAIN}
@@ -31,6 +32,16 @@ spec:
             backend:
               service:
                 name: cloud-diplomats-api
+                port:
+                  number: 80
+    - host: api-micrometer${ARGOCD_ENV_DNS_ENV}.${ARGOCD_ENV_DNS_DOMAIN}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: cloud-diplomats-api-micrometer
                 port:
                   number: 80
 
