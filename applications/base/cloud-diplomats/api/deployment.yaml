@@ -37,8 +37,6 @@ spec:
             - name: "OTEL_METRICS_EXPORTER"
               value: "otlp"
             # https://github.com/open-telemetry/semantic-conventions/blob/main/model/metrics/jvm-metrics-experimental.yaml
-            - name: "OTEL_INSTRUMENTATION_RUNTIME_TELEMETRY_EMIT_EXPERIMENTAL_TELEMETRY"
-              value: "true"
             - name: "OTEL_EXPORTER_OTLP_METRICS_ENDPOINT"
               value: "http://otel-collector-metrics-collector.observability:4317"
 
