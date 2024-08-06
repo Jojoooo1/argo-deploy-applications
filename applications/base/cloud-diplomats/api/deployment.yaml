@@ -30,23 +30,22 @@ spec:
           env:
             - name: "MANAGEMENT_SERVER_PORT"
               value: "8081"
-            # - name: "MANAGEMENT_ENDPOINT_HEALTH_GROUP_READINESS_INCLUDE"
-            #   value: "rabbit"
-
-            # - name: "SPRING_PROFILES_ACTIVE"
-            #   value: "json-logs"
             - name: "JAVA_TOOL_OPTIONS"
               value: "-javaagent:/workspace/opentelemetry/opentelemetry-javaagent.jar"
             - name: "OTEL_JAVAAGENT_CONFIGURATION_FILE"
               value: "/workspace/opentelemetry/default.properties"
+            - name: "OTEL_METRICS_EXPORTER"
+              value: "otlp"
+            # https://github.com/open-telemetry/semantic-conventions/blob/main/model/metrics/jvm-metrics-experimental.yaml
+            - name: "OTEL_INSTRUMENTATION_RUNTIME_TELEMETRY_EMIT_EXPERIMENTAL_TELEMETRY"
+              value: "true"
+            - name: "OTEL_EXPORTER_OTLP_METRICS_ENDPOINT"
+              value: "http://otel-collector-metrics-collector.observability:4317"
+
             # - name: "OTEL_TRACES_EXPORTER"
             #   value: "otlp"
             # - name: "OTEL_EXPORTER_OTLP_TRACES_ENDPOINT"
             #   value: "http://otel-collector-traces-collector.observability:4317"
-            - name: "OTEL_METRICS_EXPORTER"
-              value: "otlp"
-            - name: "OTEL_EXPORTER_OTLP_METRICS_ENDPOINT"
-              value: "http://otel-collector-metrics-collector.observability:4317"
 
             # Needed when database schema is not empty
             - name: "SPRING_FLYWAY_BASELINE_ON_MIGRATE"

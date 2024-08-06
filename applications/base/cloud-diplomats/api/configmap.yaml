@@ -9,7 +9,7 @@ metadata:
     app.kubernetes.io/managed-by: Jonathan
 data:
   HTTP_CLIENTS_MY_EXTERNAL_API_BASE_URL: "https://webhook.site/c926ec6d-4ba5-41ca-bceb-0d06643cafe4"
-  
+  # MANAGEMENT_ENDPOINT_HEALTH_GROUP_READINESS_INCLUDE: "rabbit"
   # add span attribute "jdbc.params[0]" with all value
   # JDBC_DATASOURCE_PROXY_INCLUDE_PARAMETER_VALUES: "false"
   # JDBC_INCLUDES: "QUERY,FETCH" # can remove CONNECTION if too many traces
